@@ -1,0 +1,6 @@
+{
+  "name": "FutureReady PH",
+  "description": "Premium student discovery and college-readiness platform for Philippine high school students in Grades 7–12. Discover your potential. Design your future.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

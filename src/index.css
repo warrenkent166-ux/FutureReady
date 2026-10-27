@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #14243A;
+    --color-royal: #3267D5;
+    --color-teal: #168C80;
+    --color-ivory: #F5F7FB;
+    --color-lavender: #E9E4FA;
+    --color-gold: #F6E8C9;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid #3267D5;
+  outline-offset: 2px;
+}
+
+/* Tabular figures for data tables and statistics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle clean scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.6);
+}
+
+/* --- Premium Animation & Animated BG Card Utilities --- */
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes border-rotate {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+/* Animated Background Card (Smooth live ambient radial gradient) */
+.animated-bg-card {
+  position: relative;
+  background-size: 200% 200%;
+  background-image: radial-gradient(at 0% 0%, rgba(50, 103, 213, 0.08) 0px, transparent 55%),
+                    radial-gradient(at 100% 100%, rgba(22, 140, 128, 0.07) 0px, transparent 55%),
+                    radial-gradient(at 50% 50%, rgba(233, 228, 250, 0.15) 0px, transparent 65%);
+  animation: gradient-flow 14s ease infinite;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .animated-bg-card {
+  background-image: radial-gradient(at 0% 0%, rgba(50, 103, 213, 0.16) 0px, transparent 55%),
+                    radial-gradient(at 100% 100%, rgba(22, 140, 128, 0.14) 0px, transparent 55%),
+                    radial-gradient(at 50% 50%, rgba(14, 23, 36, 0.8) 0px, transparent 70%);
+}
+
+.animated-bg-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(50, 103, 213, 0.15);
+}
+
+.dark .animated-bg-card:hover {
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Animated Dark Ambient Card (Guaranteed rich dark contrast in both light and dark mode) */
+.animated-dark-card {
+  position: relative;
+  background-size: 200% 200%;
+  background-color: #14243A;
+  background-image: radial-gradient(at 0% 0%, rgba(50, 103, 213, 0.5) 0px, transparent 55%),
+                    radial-gradient(at 100% 100%, rgba(22, 140, 128, 0.45) 0px, transparent 55%),
+                    radial-gradient(at 50% 50%, rgba(20, 36, 58, 0.95) 0px, transparent 75%);
+  color: #FFFFFF !important;
+  animation: gradient-flow 12s ease infinite;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.animated-dark-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -10px rgba(20, 36, 58, 0.5);
+}
+
+/* Premium Hero Ambient Mesh */
+.hero-ambient-mesh {
+  background-size: 300% 300%;
+  background-image: radial-gradient(circle at 15% 20%, rgba(50, 103, 213, 0.12) 0%, transparent 40%),
+                    radial-gradient(circle at 85% 30%, rgba(22, 140, 128, 0.10) 0%, transparent 45%),
+                    radial-gradient(circle at 50% 85%, rgba(246, 232, 201, 0.25) 0%, transparent 50%);
+  animation: gradient-flow 18s ease-in-out infinite;
+}
+
+.dark .hero-ambient-mesh {
+  background-image: radial-gradient(circle at 15% 20%, rgba(50, 103, 213, 0.22) 0%, transparent 40%),
+                    radial-gradient(circle at 85% 30%, rgba(22, 140, 128, 0.18) 0%, transparent 45%),
+                    radial-gradient(circle at 50% 85%, rgba(20, 36, 58, 0.8) 0%, transparent 55%);
+}
+
+/* Glowing Border Accent Card */
+.glow-card {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(50, 103, 213, 0.4), rgba(22, 140, 128, 0.2), transparent 70%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.glow-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(50, 103, 213, 0.8), rgba(22, 140, 128, 0.6), rgba(246, 232, 201, 0.4));
+}
+
+.animate-float {
+  animation: float-subtle 6s ease-in-out infinite;
+}
